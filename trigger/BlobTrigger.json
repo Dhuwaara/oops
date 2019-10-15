@@ -1,0 +1,25 @@
+{
+	"name": "BlobTrigger",
+	"properties": {
+		"description": "It triggers the CopyfromBlobtoBlob Pipeline as soon as some files are loaded into a source",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "CopyFromBlobtoBlob",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/dhuwaarainput/blobs/",
+			"blobPathEndsWith": ".csv",
+			"scope": "/subscriptions/c687d6b9-9ee2-4d7e-a004-c4722b338e9e/resourceGroups/MYRG/providers/Microsoft.Storage/storageAccounts/dhuwaarablob",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
